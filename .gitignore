@@ -74,3 +74,28 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+#编译文件
+DensityInspection.axf
+DensityInspection.htm
+DensityInspection.lnp
+DensityInspection.map
+DensityInspection.plg
+DensityInspection.sct
+DensityInspection.tra
+DensityInspection.uvgui.zhou_
+DensityInspection.uvgui_zhou_.bak
+DensityInspection.uvopt
+DensityInspection_DebugInFlash.dep
+DensityInspection_Target 1.dep
+DensityInspection_uvproj.bak
+main.crf
+main.d
+main.o
+startup_LPC11xx.d
+startup_LPC11xx.lst
+startup_LPC11xx.o
+startup_LPC11xx.s
+system_lpc11xx.crf
+system_lpc11xx.d
+system_lpc11xx.o
