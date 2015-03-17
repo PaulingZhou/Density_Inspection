@@ -101,23 +101,30 @@
     ** Returned value:      无
     *********************************************************************************************************/
     void s_transstart(void){
-            LPC_GPIO2->DIR  |= (DATAHIGH|SCKHIGH);                              /* 将p2.7,p2.8方向寄存器置1(配置为输出) */
+            LPC_GPIO2->DIR  |= DATAHIGH;                              /* 将p2.7,p2.8方向寄存器置1(配置为输出) */
             LPC_GPIO2->DATA |= DATAHIGH;        //DATA=1
             LPC_GPIO2->DATA &= ~SCKHIGH;        //SCK=0
-            myDelay(10);
+            __nop();
+//             myDelay(10);
             LPC_GPIO2->DATA |= SCKHIGH;         //SCK=1
-            myDelay(10);
+            __nop();
+//             myDelay(10);
             LPC_GPIO2->DATA &= ~DATAHIGH;       //DATA=0
-            myDelay(10);
+//             myDelay(10);
+            __nop();
             LPC_GPIO2->DATA &= ~SCKHIGH;        //SCK=0
-            myDelay(30);
+//             myDelay(30);
+            __nop();__nop();__nop();
             LPC_GPIO2->DATA |= SCKHIGH;         //SCK=1
-            myDelay(10);
+//             myDelay(10);
+            __nop();
             LPC_GPIO2->DATA |= DATAHIGH;        //DATA=1
-            myDelay(10);
+//             myDelay(10);
+            __nop();
             LPC_GPIO2->DATA &= ~SCKHIGH;        //SCK=0
-            myDelay(10);
-            LPC_GPIO2->DIR  &= ~(DATAHIGH|SCKHIGH);                              /* 将p2.7,p2.8方向寄存器置0(配置为输入) */
+//             myDelay(10);
+            __nop();
+            LPC_GPIO2->DIR  &= ~DATAHIGH;                              /* 将p2.7,p2.8方向寄存器置0(配置为输入) */
     }
 
 
@@ -148,28 +155,11 @@
     int main (void)
     {
         SystemInit();                                                       /* 系统初始化，切勿删除         */
-
         GPIOInit();
         while (1) {
-//             LPC_GPIO2->DIR  |= (DATAHIGH|SCKHIGH);                              /* 将p2.7,p2.8方向寄存器置1(配置为输出) */
-//             LPC_GPIO2->DATA |= DATAHIGH;        //DATA=1
-//             LPC_GPIO2->DATA &= ~SCKHIGH;        //SCK=0
-//             myDelay(10);
-//             LPC_GPIO2->DATA |= SCKHIGH;         //SCK=1
-//             myDelay(10);
-//             LPC_GPIO2->DATA &= ~DATAHIGH;       //DATA=0
-//             myDelay(10);
-//             LPC_GPIO2->DATA &= ~SCKHIGH;        //SCK=0
-//             myDelay(30);
-//             LPC_GPIO2->DATA |= SCKHIGH;         //SCK=1
-//             myDelay(10);
-//             LPC_GPIO2->DATA |= DATAHIGH;        //DATA=1
-//             myDelay(10);
-//             LPC_GPIO2->DATA &= ~SCKHIGH;        //SCK=0
-//             myDelay(10);
-//             LPC_GPIO2->DIR  &= ~(DATAHIGH|SCKHIGH);                              /* 将p2.7,p2.8方向寄存器置0(配置为输入) */
             s_transstart();
-            myDelay(1000);
+//             myDelay(1000);
+            __nop();__nop();__nop();__nop;__nop();__nop();
         }
     }
 
