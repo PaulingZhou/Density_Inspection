@@ -139,7 +139,7 @@
             <RestoreTracepoints>1</RestoreTracepoints>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>16</TargetSelection>
+          <TargetSelection>15</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -416,6 +416,11 @@
               <FileType>1</FileType>
               <FilePath>.\USER_CODE\main.c</FilePath>
             </File>
+            <File>
+              <FileName>sht10.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\USER_CODE\sht10.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
@@ -553,7 +558,7 @@
             <RestoreTracepoints>1</RestoreTracepoints>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>16</TargetSelection>
+          <TargetSelection>15</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -829,6 +834,11 @@
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\USER_CODE\main.c</FilePath>
+            </File>
+            <File>
+              <FileName>sht10.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\USER_CODE\sht10.c</FilePath>
             </File>
           </Files>
         </Group>

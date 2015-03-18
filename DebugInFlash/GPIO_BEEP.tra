@@ -5,8 +5,9 @@
 ### List of Objects: adding '".\debuginflash\system_lpc11xx.o"'
 ### List of Objects: adding '".\debuginflash\startup_lpc11xx.o"'
 ### List of Objects: adding '".\debuginflash\main.o"'
+### List of Objects: adding '".\debuginflash\sht10.o"'
 ### ADS-LD Command completed:
---cpu Cortex-M0 ".\debuginflash\core_cm0.o" ".\debuginflash\system_lpc11xx.o" ".\debuginflash\startup_lpc11xx.o" ".\debuginflash\main.o" 
+--cpu Cortex-M0 ".\debuginflash\core_cm0.o" ".\debuginflash\system_lpc11xx.o" ".\debuginflash\startup_lpc11xx.o" ".\debuginflash\main.o" ".\debuginflash\sht10.o" 
 --strict --scatter ".\DebugInFlash\GPIO_BEEP.sct" 
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
 --info sizes --info totals --info unused --info veneers 
@@ -14,7 +15,7 @@
 ### ADS-LD Output File: '.\DebugInFlash\GPIO_BEEP.axf'
 ### ADS-LD Command File: '.\DebugInFlash\GPIO_BEEP.lnp'
 ### Checking for dirty Components...
-### Creating CmdFile '.\DebugInFlash\GPIO_BEEP.lnp', Handle=0x00000C18
+### Creating CmdFile '.\DebugInFlash\GPIO_BEEP.lnp', Handle=0x000007C0
 ### Writing '.lnp' file
 ### ADS-LD Command file '.\DebugInFlash\GPIO_BEEP.lnp' is ready.
 ### ADS-LD: About to start ADS-LD Thread.
