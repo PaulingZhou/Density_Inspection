@@ -1,5 +1,0 @@
--c --cpu Cortex-M0 -g -O0 --apcs=interwork -I.\CM0 -I.\LPC11xx -I.\LPC11xx\startup -I.\USER_CODE 
--I C:\Keil\ARM\RV31\INC 
--I C:\Keil\ARM\CMSIS\Include 
--I C:\Keil\ARM\Inc\NXP\LPC11xx 
--o ".\DebugInFlash\sht10.o" --omf_browse ".\DebugInFlash\sht10.crf" --depend ".\DebugInFlash\sht10.d" "USER_CODE\SHT10.c"

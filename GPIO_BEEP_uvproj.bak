@@ -417,9 +417,9 @@
               <FilePath>.\USER_CODE\main.c</FilePath>
             </File>
             <File>
-              <FileName>sht10.c</FileName>
+              <FileName>SHT10.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\USER_CODE\sht10.c</FilePath>
+              <FilePath>.\USER_CODE\SHT10.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -836,9 +836,9 @@
               <FilePath>.\USER_CODE\main.c</FilePath>
             </File>
             <File>
-              <FileName>sht10.c</FileName>
+              <FileName>SHT10.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\USER_CODE\sht10.c</FilePath>
+              <FilePath>.\USER_CODE\SHT10.c</FilePath>
             </File>
           </Files>
         </Group>

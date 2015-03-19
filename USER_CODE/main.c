@@ -30,62 +30,10 @@
 *********************************************************************************************************/
 #include "LPC11xx.h"                                                    /* LPC11xx外设寄存器            */
 #include "SHT10.h"
-
-/*********************************************************************************************************
-宏定义
-*********************************************************************************************************/
-#define DATAHIGH            (1ul << 7)           //DATA总线为PIO2_7,DATABHIGH表示数据总线高电平
-#define SCKHIGH             (1ul << 8)           //SCK为总线PIO2_8,SCKHIGH表示时钟线高电平
-#define PIO2_7_FUNC         0x00                 //把PIO2_7设置为GPIO功能
-#define PIO2_8_FUNC         0x00                 //把PIO2_8设置为GPIO功能
-#define PIO2_MODE           0x02                 //把PIO2_7,PIO2_8设置为内部上拉使能，但实测外部仍需接5V与10k上拉电阻才能保证输出转输入时不会产生明显的电平下降
-
-#define noACK               0
-#define ACK                 1
-                                                //adr command r/w
-#define STATUS_REG_W 0x06                       //000  0011    0
-#define STATUS_REG_R 0x07                       //000  0011    1
-#define MEASURE_TEMP 0x03                       //000  0001    1
-#define MEASURE_HUMI 0x05                       //000  0010    1
-#define RESET 0x1e                              //000  1111    0
+#include "init.h"
 
 uint8_t val_1,val_2=0;
 float temp=0;
-
-/*********************************************************************************************************
-** Function name:       myDelay
-** Descriptions:        软件延时，每单位延时1ms(略大)
-** input parameters:    无
-** output parameters:   无
-** Returned value:      无
-*********************************************************************************************************/
-void myDelay (uint32_t ulTime)
-{
-    uint32_t i;
-    i = 0;
-    while (ulTime--)
-    {
-        for (i = 0; i < 3300; i++)
-        __nop();
-    }
-}
-
-
-/*********************************************************************************************************
-** Function name:       GPIOInit
-** Descriptions:        GPIO初始化
-** input parameters:    无
-** output parameters:   无
-** Returned value:      无
-*********************************************************************************************************/
-void GPIOInit( void )
-{
-    LPC_SYSCON->SYSAHBCLKCTRL |= (1 << 6);                              /* 初始化GPIO AHB时钟       */
-    LPC_IOCON->PIO2_7 = PIO2_7_FUNC|(PIO2_MODE<<3);                     /* 将P2.7定义为GPIO功能，上拉电阻使能      */
-    LPC_IOCON->PIO2_8 &= PIO2_8_FUNC|(PIO2_MODE<<3);                    /* 将p2.8定义为GPIO功能，上拉电阻使能       */
-    LPC_GPIO2->DIR  |= (DATAHIGH|SCKHIGH);                              /* 将p2.7,p2.8方向寄存器置1(配置为输出) */
-    LPC_GPIO2->DATA |= (DATAHIGH|SCKHIGH);                              /* 将p2.7,p2.8配置为初始化输出高电平 */          
-}
 
 /*********************************************************************************************************
 ** Function name:       main
@@ -99,15 +47,11 @@ int main (void)
     uint8_t i = 0;
     SystemInit();                                                       /* 系统初始化，切勿删除         */
     GPIOInit();
-    myDelay(20);                    //上电之后需要等待11ms以越过“休眠”状态
-    s_transstart();
-    s_write_byte(6);
-    s_write_byte(0);
+    myDelay(20);                                                        //上电之后需要等待11ms以越过“休眠”状态
     while (1) 
     {
         s_transstart();
         s_write_byte(MEASURE_TEMP);
-//         myDelay(2000);
         for(i=0;i<2000;i++)
         {
             __nop();
@@ -117,13 +61,6 @@ int main (void)
         val_2 = s_read_byte(noACK);
         temp = (float)((int)val_1*256+(int)val_2)/100-40.00;
         myDelay(500);
-//         for(i=0;i<10;i++)
-//         {
-//             myDelay(1);
-//             LPC_GPIO2->DATA |= SCKHIGH;
-//             myDelay(1);
-//             LPC_GPIO2->DATA &= ~SCKHIGH;
-//         }
     }
 }
 

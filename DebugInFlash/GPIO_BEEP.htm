@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\DebugInFlash\GPIO_BEEP.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\DebugInFlash\GPIO_BEEP.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.02 [Build 28]: Last Updated: Thu Mar 19 16:27:13 2015
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.02 [Build 28]: Last Updated: Thu Mar 19 19:10:57 2015
 <BR><P>
 <H3>Maximum Stack Usage =         48 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -349,19 +349,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_setup_stackheap
 </UL>
 
-<P><STRONG><a name="[39]"></a>myDelay</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, main.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_connectionreset
-<LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_write_byte
-<LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_transstart
-<LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_read_byte
-<LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[38]"></a>GPIOInit</STRONG> (Thumb, 60 bytes, Stack size 0 bytes, main.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[2e]"></a>main</STRONG> (Thumb, 160 bytes, Stack size 24 bytes, main.o(.text))
+<P><STRONG><a name="[2e]"></a>main</STRONG> (Thumb, 144 bytes, Stack size 24 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = main &rArr; SystemInit &rArr; SystemFrequencyUpdate &rArr; __ARM_common_switch8
 </UL>
 <BR>[Calls]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
@@ -372,8 +360,8 @@ Global Symbols
 <LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_write_byte
 <LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_transstart
 <LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_read_byte
-<LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOInit
 <LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myDelay
+<LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOInit
 <LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
@@ -415,6 +403,18 @@ Global Symbols
 <P><STRONG><a name="[43]"></a>s_softreset</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, sht10.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_connectionreset
 <LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_write_byte
+</UL>
+
+<P><STRONG><a name="[39]"></a>myDelay</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, init.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_connectionreset
+<LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_write_byte
+<LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_transstart
+<LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_read_byte
+<LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[38]"></a>GPIOInit</STRONG> (Thumb, 60 bytes, Stack size 0 bytes, init.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[72]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, aeabi_sdiv.o(.text), UNUSED)
