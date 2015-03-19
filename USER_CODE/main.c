@@ -49,7 +49,8 @@
 #define MEASURE_HUMI 0x05                       //000  0010    1
 #define RESET 0x1e                              //000  1111    0
 
-uint8_t val=0;
+uint8_t val_1,val_2=0;
+float temp=0;
 
 /*********************************************************************************************************
 ** Function name:       myDelay
@@ -95,19 +96,27 @@ void GPIOInit( void )
 *********************************************************************************************************/
 int main (void)
 {
-    
+    uint8_t i = 0;
     SystemInit();                                                       /* 系统初始化，切勿删除         */
     GPIOInit();
     myDelay(20);                    //上电之后需要等待11ms以越过“休眠”状态
-//     s_transstart();
-//     s_write_byte(6);
-//     s_write_byte(2);
+    s_transstart();
+    s_write_byte(6);
+    s_write_byte(0);
     while (1) 
     {
-        s_connectionreset();
-//         s_transstart();
-//         s_write_byte(7);
-//         val = s_read_byte(noACK);
+        s_transstart();
+        s_write_byte(MEASURE_TEMP);
+//         myDelay(2000);
+        for(i=0;i<2000;i++)
+        {
+            __nop();
+            if(!(LPC_GPIO2->DATA & DATAHIGH))break;
+        }
+        val_1 = s_read_byte(ACK);
+        val_2 = s_read_byte(noACK);
+        temp = (float)((int)val_1*256+(int)val_2)/100-40.00;
+        myDelay(500);
 //         for(i=0;i<10;i++)
 //         {
 //             myDelay(1);

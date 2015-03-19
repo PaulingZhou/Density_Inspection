@@ -98,6 +98,7 @@ char s_read_byte(uint8_t ack)
     LPC_GPIO2->DATA &= ~SCKHIGH;            //CLK低电平，之后控制器释放DATA
     LPC_GPIO2->DATA |= DATAHIGH;            //DATA高电平，控制器释放DATA，若在高阻状态可注释
     LPC_GPIO2->DIR &= ~DATAHIGH;            //DATA切换为输入模式
+    myDelay(1);
     return val;                             //返回测量值(uint8_t类型变量)
 }
 
@@ -129,3 +130,17 @@ void s_connectionreset(void)
     s_transstart();
 }
 
+/*********************************************************************************************************
+** Function name:       s_softreset(void)
+** Descriptions:        软件复位传感器
+** input parameters:    无
+** output parameters:   无
+** Returned value:      无
+*********************************************************************************************************/
+char s_softreset(void)
+{
+    uint8_t error=0;
+    s_connectionreset();            //reset communication
+    error+=s_write_byte(RESET);     //send RESET-command(0x1F) to sensor
+    return error;                   //error=1 in case of no response from the sensor
+}
