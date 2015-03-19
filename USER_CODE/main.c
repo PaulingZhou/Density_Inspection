@@ -99,14 +99,15 @@ int main (void)
     SystemInit();                                                       /* 系统初始化，切勿删除         */
     GPIOInit();
     myDelay(20);                    //上电之后需要等待11ms以越过“休眠”状态
-    s_transstart();
-    s_write_byte(6);
-    s_write_byte(2);
+//     s_transstart();
+//     s_write_byte(6);
+//     s_write_byte(2);
     while (1) 
     {
-        s_transstart();
-        s_write_byte(7);
-        val = s_read_byte(noACK);
+        s_connectionreset();
+//         s_transstart();
+//         s_write_byte(7);
+//         val = s_read_byte(noACK);
 //         for(i=0;i<10;i++)
 //         {
 //             myDelay(1);

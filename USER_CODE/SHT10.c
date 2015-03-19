@@ -100,3 +100,32 @@ char s_read_byte(uint8_t ack)
     LPC_GPIO2->DIR &= ~DATAHIGH;            //DATA切换为输入模式
     return val;                             //返回测量值(uint8_t类型变量)
 }
+
+/*********************************************************************************************************
+** Function name:       s_connectionreset(void)
+** Descriptions:        通讯复位时序
+** input parameters:    无
+                           ________________________________________     _____
+** output parameters: DATA:                                        |___|
+                             _   _   _   _   _   _   _   _   _     _   _
+                      SCK: _| |_| |_| |_| |_| |_| |_| |_| |_| |___| |_| |____
+** Returned value:      无
+*********************************************************************************************************/
+void s_connectionreset(void)
+{
+    uint8_t i;
+    LPC_GPIO2->DIR |= (DATAHIGH|SCKHIGH);
+    LPC_GPIO2->DATA |= DATAHIGH;
+    LPC_GPIO2->DATA &= ~SCKHIGH;
+    myDelay(1);
+    for(i=0;i<9;i++)
+    {
+        LPC_GPIO2->DATA |= SCKHIGH;
+        myDelay(1);
+        LPC_GPIO2->DATA &= ~SCKHIGH;
+        myDelay(1);
+    }
+    myDelay(2);
+    s_transstart();
+}
+
