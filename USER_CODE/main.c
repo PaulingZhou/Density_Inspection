@@ -32,8 +32,13 @@
 #include "SHT10.h"
 #include "init.h"
 
-uint8_t val_1,val_2=0;
-float temp=0;
+typedef union
+{
+    uint32_t i;
+    float f;
+}value;
+float temp;
+// uint8_t val_1,val_2;
 
 /*********************************************************************************************************
 ** Function name:       main
@@ -44,22 +49,19 @@ float temp=0;
 *********************************************************************************************************/
 int main (void)
 {
-    uint8_t i = 0;
+    value humi_val,temp_val;
+    char error,checksum;
+    uint32_t i;
     SystemInit();                                                       /* 系统初始化，切勿删除         */
     GPIOInit();
     myDelay(20);                                                        //上电之后需要等待11ms以越过“休眠”状态
     while (1) 
     {
-        s_transstart();
-        s_write_byte(MEASURE_TEMP);
-        for(i=0;i<2000;i++)
-        {
-            __nop();
-            if(!(LPC_GPIO2->DATA & DATAHIGH))break;
-        }
-        val_1 = s_read_byte(ACK);
-        val_2 = s_read_byte(noACK);
-        temp = (float)((int)val_1*256+(int)val_2)/100-40.00;
+        error=0;
+        temp_val.i=0;
+        error += s_measure((char*) &(temp_val.i),&checksum,TEMP);
+        temp_val.f = (float)(temp_val.i);
+        temp = temp_val.f;
         myDelay(500);
     }
 }

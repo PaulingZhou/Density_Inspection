@@ -1,5 +1,6 @@
 #include "LPC11xx.h"                                                    /* LPC11xx外设寄存器            */
 #include "init.h"                                                       /* 主要调用myDelay()函数 */
+#include "sht10.h"
 
 /*********************************************************************************************************
 宏定义
@@ -18,6 +19,8 @@
 #define MEASURE_TEMP 0x03                       //000  0001    1
 #define MEASURE_HUMI 0x05                       //000  0010    1
 #define RESET 0x1e                              //000  1111    0
+
+uint8_t val_1,val_2;
 
 /*********************************************************************************************************
 ** Function name:       s_transstart
@@ -170,17 +173,26 @@ char s_softreset(void)
 ** output parameters:   无
 ** Returned value:      无
 *********************************************************************************************************/
-char s_measure(uint8_t *p_value,uint8_t *checksum,uint8_t mode)
+char s_measure(char *p_value,char *checksum,uint8_t mode)
 {
-        s_transstart();
-        s_write_byte(MEASURE_TEMP);
-        for(i=0;i<2000;i++)
-        {
-            __nop();
-            if(!(LPC_GPIO2->DATA & DATAHIGH))break;
-        }
-        val_1 = s_read_byte(ACK);
-        val_2 = s_read_byte(noACK);
-        temp = (float)((int)val_1*256+(int)val_2)/100-40.00;
-        myDelay(500);
+    char error = 0;
+    uint32_t i;
+    s_transstart();
+    switch(mode)
+    {
+        case TEMP : error += s_write_byte(MEASURE_TEMP);break;
+        case HUMI : error += s_write_byte(MEASURE_HUMI);break;
+        default     : break;
+    }
+    for(i=0;i<2000;i++)
+    {
+        myDelay(1);
+        if(!(LPC_GPIO2->DATA & DATAHIGH))break;
+    }
+    if(LPC_GPIO2->DATA & DATAHIGH) error+=1;
+    *(p_value+1) = s_read_byte(ACK);
+    *(p_value) = s_read_byte(noACK);
+    val_1 = *(p_value);
+    val_2 = *(p_value+1);
+    return error;
 }

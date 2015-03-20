@@ -4,3 +4,4 @@
 .\DebugInFlash\sht10.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
 .\DebugInFlash\sht10.o: .\LPC11xx\system_LPC11xx.h
 .\DebugInFlash\sht10.o: USER_CODE\init.h
+.\DebugInFlash\sht10.o: USER_CODE\sht10.h

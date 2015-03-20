@@ -2,6 +2,7 @@ extern void s_transstart(void);
 extern char s_write_byte(uint8_t value);
 extern char s_read_byte(uint8_t ack);
 extern void s_connectionreset(void);
+extern char s_measure(char *p_value,char *checksum,uint8_t mode);
 
 #define DATAHIGH            (1ul << 7)           //DATA总线为PIO2_7,DATABHIGH表示数据总线高电平
 #define SCKHIGH             (1ul << 8)           //SCK为总线PIO2_8,SCKHIGH表示时钟线高电平
@@ -17,3 +18,5 @@ extern void s_connectionreset(void);
 #define MEASURE_TEMP 0x03                       //000  0001    1
 #define MEASURE_HUMI 0x05                       //000  0010    1
 #define RESET 0x1e                              //000  1111    0
+
+enum{TEMP,HUMI};
