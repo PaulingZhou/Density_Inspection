@@ -20,7 +20,7 @@
 #define MEASURE_HUMI 0x05                       //000  0010    1
 #define RESET 0x1e                              //000  1111    0
 
-uint8_t val_1,val_2;
+uint8_t val_1,val_2,val_3,val_4;
 
 /*********************************************************************************************************
 ** Function name:       s_transstart
@@ -194,5 +194,7 @@ char s_measure(char *p_value,char *checksum,uint8_t mode)
     *(p_value) = s_read_byte(noACK);
     val_1 = *(p_value);
     val_2 = *(p_value+1);
+    val_3 = *(p_value+2);
+    val_4 = *(p_value+3);
     return error;
 }

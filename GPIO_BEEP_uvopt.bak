@@ -275,12 +275,32 @@
         <Ww>
           <count>0</count>
           <WinNumber>1</WinNumber>
-          <ItemText>temp</ItemText>
+          <ItemText>temp_val.i</ItemText>
         </Ww>
         <Ww>
           <count>1</count>
           <WinNumber>1</WinNumber>
-          <ItemText>humi</ItemText>
+          <ItemText>temp_val.f</ItemText>
+        </Ww>
+        <Ww>
+          <count>2</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>val_1</ItemText>
+        </Ww>
+        <Ww>
+          <count>3</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>val_2</ItemText>
+        </Ww>
+        <Ww>
+          <count>4</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>humi_val.i</ItemText>
+        </Ww>
+        <Ww>
+          <count>5</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>humi_val.f</ItemText>
         </Ww>
       </WatchWindow1>
       <DebugFlag>
@@ -383,12 +403,12 @@
       <GroupNumber>2</GroupNumber>
       <FileNumber>4</FileNumber>
       <FileType>1</FileType>
-      <tvExp>1</tvExp>
+      <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>15</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>43</TopLine>
-      <CurrentLine>58</CurrentLine>
+      <TopLine>59</TopLine>
+      <CurrentLine>73</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\USER_CODE\main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
@@ -401,10 +421,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>6</ColumnNumber>
+      <ColumnNumber>18</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>6</TopLine>
-      <CurrentLine>23</CurrentLine>
+      <TopLine>176</TopLine>
+      <CurrentLine>195</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\USER_CODE\SHT10.c</PathWithFileName>
       <FilenameWithoutPath>SHT10.c</FilenameWithoutPath>
@@ -417,10 +437,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>26</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>4</TopLine>
-      <CurrentLine>10</CurrentLine>
+      <TopLine>1</TopLine>
+      <CurrentLine>23</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\USER_CODE\init.c</PathWithFileName>
       <FilenameWithoutPath>init.c</FilenameWithoutPath>
@@ -433,10 +453,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>17</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>16</TopLine>
-      <CurrentLine>10</CurrentLine>
+      <TopLine>35</TopLine>
+      <CurrentLine>41</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\USER_CODE\uart.c</PathWithFileName>
       <FilenameWithoutPath>uart.c</FilenameWithoutPath>
