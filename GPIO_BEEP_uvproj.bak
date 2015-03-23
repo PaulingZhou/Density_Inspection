@@ -421,6 +421,11 @@
               <FileType>1</FileType>
               <FilePath>.\USER_CODE\SHT10.c</FilePath>
             </File>
+            <File>
+              <FileName>init.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\USER_CODE\init.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
@@ -839,6 +844,11 @@
               <FileName>SHT10.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\USER_CODE\SHT10.c</FilePath>
+            </File>
+            <File>
+              <FileName>init.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\USER_CODE\init.c</FilePath>
             </File>
           </Files>
         </Group>

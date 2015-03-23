@@ -426,6 +426,11 @@
               <FileType>1</FileType>
               <FilePath>.\USER_CODE\init.c</FilePath>
             </File>
+            <File>
+              <FileName>uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\USER_CODE\uart.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
@@ -849,6 +854,11 @@
               <FileName>init.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\USER_CODE\init.c</FilePath>
+            </File>
+            <File>
+              <FileName>uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\USER_CODE\uart.c</FilePath>
             </File>
           </Files>
         </Group>
