@@ -66,3 +66,43 @@ void uartInit (void)
     LPC_UART->FCR  = 0x07;
     LPC_UART->RS485CTRL = 0x30;                                         /* 配置485                      */
 }
+
+/*********************************************************************************************************
+** Function name:       timer0Init
+** Descriptions:        16位定时器0初始化函数，使用匹配输出脉冲
+** input parameters:    无
+** output parameters:   无
+** Returned value:      无
+*********************************************************************************************************/
+void timer0Init (void)
+{
+    LPC_SYSCON->SYSAHBCLKCTRL |= (1 << 16);                             /* 打开IOCON模块时钟            */
+    LPC_IOCON->PIO0_8 |= 0x02;                                          /* 将P0.8配置为MAT0输出引脚     */
+    LPC_SYSCON->SYSAHBCLKCTRL |= (1 << 7);                              /* 打开16位定时器0时钟模块      */
+    LPC_TMR16B0->PR      = 0;                                           /* 设置分频系数                 */
+    LPC_TMR16B0->MCR     = (0x01<<1);                                   /* 设置MR0匹配后复位TC          */
+    LPC_TMR16B0->EMR     = (0x03 << 4) ;                                /* MR0匹配后MAT0.0输出翻转      */
+    LPC_TMR16B0->MR0     = SystemFrequency / 500000;                     /* 频率控制,100us后翻转输出     */
+    LPC_TMR16B0->TCR     = 0x01;                                        /* 启动定时器                   */
+
+}
+
+/*********************************************************************************************************
+** Function name:       timer1Init
+** Descriptions:        32位定时器1初始化函数，使用捕获输入计时
+** input parameters:    无
+** output parameters:   无
+** Returned value:      无
+*********************************************************************************************************/
+void timer1Init (void)
+{
+    LPC_SYSCON->SYSAHBCLKCTRL |= (1 << 16);                               /* 打开IOCON模块时钟         */
+    LPC_IOCON->R_PIO1_0 |= 0x03;                                            /* 将P1.0配置为CAP0输入引脚  */
+    LPC_SYSCON->SYSAHBCLKCTRL |= (1 << 10);                                /* 打开16位定时器1时钟模块   */
+    LPC_TMR32B1->PR         =0;
+    LPC_TMR32B1->CCR     = 0x06;                                      /* 设置CAP0.0下降沿捕获         */
+    LPC_TMR32B1->TC      = 0;
+    LPC_TMR32B1->TCR     = 0x01;                                        /* 启动定时器                   */
+    NVIC_EnableIRQ(TIMER_32_1_IRQn);
+    NVIC_SetPriority(TIMER_32_1_IRQn, 2);
+}
