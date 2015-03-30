@@ -82,7 +82,7 @@ void timer0Init (void)
     LPC_TMR16B0->PR      = 0;                                           /* 设置分频系数                 */
     LPC_TMR16B0->MCR     = (0x01<<1);                                   /* 设置MR0匹配后复位TC          */
     LPC_TMR16B0->EMR     = (0x03 << 4) ;                                /* MR0匹配后MAT0.0输出翻转      */
-    LPC_TMR16B0->MR0     = SystemFrequency / 500000;                     /* 频率控制,100us后翻转输出     */
+    LPC_TMR16B0->MR0     = 120;                     /* 频率控制,2us后翻转输出     */
     LPC_TMR16B0->TCR     = 0x01;                                        /* 启动定时器                   */
 
 }
