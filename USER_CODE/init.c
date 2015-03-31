@@ -5,6 +5,9 @@
   宏定义
 *********************************************************************************************************/
 #define UART_BPS    9600                                                /*  串口通信波特率              */
+#define OUTPUT  (1ul << 3)
+#define OUTPUT_HIGH()   LPC_GPIO0->DATA |= OUTPUT                       //PIO0_3输出高电平
+#define OUTPUT_LOW()    LPC_GPIO0->DATA &= ~OUTPUT                       //PIO0_3输出低电平
 
 /*********************************************************************************************************
 ** Function name:       myDelay
@@ -37,7 +40,9 @@ void GPIOInit( void )
     LPC_IOCON->PIO2_7 = PIO2_7_FUNC|(PIO2_MODE<<3);                     /* 将P2.7定义为GPIO功能，上拉电阻使能      */
     LPC_IOCON->PIO2_8 &= PIO2_8_FUNC|(PIO2_MODE<<3);                    /* 将p2.8定义为GPIO功能，上拉电阻使能       */
     LPC_GPIO2->DIR  |= (DATAHIGH|SCKHIGH);                              /* 将p2.7,p2.8方向寄存器置1(配置为输出) */
-    LPC_GPIO2->DATA |= (DATAHIGH|SCKHIGH);                              /* 将p2.7,p2.8配置为初始化输出高电平 */          
+    LPC_GPIO2->DATA |= (DATAHIGH|SCKHIGH);                              /* 将p2.7,p2.8配置为初始化输出高电平 */  
+    LPC_IOCON->PIO0_3 |= 0x00 | (0x02<<3);
+    LPC_GPIO0->DIR |= OUTPUT;   
 }
 
 /*********************************************************************************************************
@@ -82,9 +87,8 @@ void timer0Init (void)
     LPC_TMR16B0->PR      = 0;                                           /* 设置分频系数                 */
     LPC_TMR16B0->MCR     = (0x01<<1);                                   /* 设置MR0匹配后复位TC          */
     LPC_TMR16B0->EMR     = (0x03 << 4) ;                                /* MR0匹配后MAT0.0输出翻转      */
-    LPC_TMR16B0->MR0     = 120;                     /* 频率控制,2us后翻转输出     */
+    LPC_TMR16B0->MR0     = 120;                                         /* 频率控制,2us后翻转输出       */
     LPC_TMR16B0->TCR     = 0x01;                                        /* 启动定时器                   */
-
 }
 
 /*********************************************************************************************************

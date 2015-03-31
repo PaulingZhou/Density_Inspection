@@ -42,6 +42,7 @@ float temp,humi;
 value humi_val,temp_val;
 uint32_t count[2],length;
 volatile uint32_t   GuiCapFlag = 0;                                     /* 定时器捕获中断标志           */
+uint32_t i;
 // uint8_t val_1,val_2;
 
 /*********************************************************************************************************
@@ -80,15 +81,21 @@ int main (void)
     SystemInit();                                                       /* 系统初始化，切勿删除         */
     GPIOInit();
     uartInit();
-    timer0Init();
+//     timer0Init();
     timer1Init();
     myDelay(20);                                                        //上电之后需要等待11ms以越过“休眠”状态
     while (1) 
     {
+         LPC_GPIO0->DATA |= 0x01<<3;
+        LPC_TMR32B1->TC      = 0;
+        for (i = 0; i < 1; i++)
+        __nop();
+         LPC_GPIO0->DATA &= ~(0x01<<3);
+        myDelay(50);
         if(GuiCapFlag){
         count[1] = LPC_TMR32B1->CR0;
         length=count[1]-count[0];
-        count[0]=count[1];  
+//         count[0]=count[1];  
         GuiCapFlag  = 0;
         }
 //         count[0] = LPC_TMR16B1 ->CR0;
