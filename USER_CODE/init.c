@@ -85,10 +85,12 @@ void timer0Init (void)
     LPC_IOCON->PIO0_8 |= 0x02;                                          /* 将P0.8配置为MAT0输出引脚     */
     LPC_SYSCON->SYSAHBCLKCTRL |= (1 << 7);                              /* 打开16位定时器0时钟模块      */
     LPC_TMR16B0->PR      = 0;                                           /* 设置分频系数                 */
-    LPC_TMR16B0->MCR     = (0x01<<1);                                   /* 设置MR0匹配后复位TC          */
+    LPC_TMR16B0->MCR     = (0x03);                                   /* 设置MR0匹配后复位TC，并产生中断          */
     LPC_TMR16B0->EMR     = (0x03 << 4) ;                                /* MR0匹配后MAT0.0输出翻转      */
-    LPC_TMR16B0->MR0     = 120;                                         /* 频率控制,2us后翻转输出       */
+    LPC_TMR16B0->MR0     = 132;                                         /* 频率控制，180kHz   */
     LPC_TMR16B0->TCR     = 0x01;                                        /* 启动定时器                   */
+    NVIC_EnableIRQ(TIMER_16_0_IRQn);                                    /* 设置中断并使能               */
+    NVIC_SetPriority(TIMER_16_0_IRQn, 2);
 }
 
 /*********************************************************************************************************
