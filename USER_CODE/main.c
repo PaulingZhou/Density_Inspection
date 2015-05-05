@@ -32,6 +32,7 @@
 #include "SHT10.h"
 #include "init.h"
 #include "uart.h"
+#include "ds18b20.h"
 
 typedef union
 {
@@ -101,17 +102,26 @@ int main (void)
     myDelay(20);                                                        //上电之后需要等待11ms以越过“休眠”状态
     while (1) 
     {
-        LPC_TMR16B0->TCR = 0x01;
-        myDelay(1);
+        ds_write_byte(0x00);
+//         
+//         
+//         DS18B20_Reset();
+//         myDelay(2);
+//         
+//         
+//         LPC_TMR16B0->TCR = 0x01;
+//         myDelay(1);
 //         if(GuiCapFlag){
 //         length = LPC_TMR32B1->CR0; 
 //         GuiCapFlag  = 0;
 //         }
-// //         temp_val.i=0;
-// //         humi_val.i = 0;
+//         temp_val.i=0;
+//         humi_val.i = 0;
 //         error=0;    
 //         error += s_measure((char*) &(temp_val.i),&checksum,TEMP);
 //         error += s_measure((char*)&(humi_val.i),&checksum,HUMI);
+//         uartSendByte(0xAA);
+//         uartSendByte(0xBB);
 //         for(i=0;i<2;i++)
 //         {
 //             val[i] = *((char*)(&temp_val.i)+i);
@@ -126,7 +136,7 @@ int main (void)
 // //         humi_val.f = (float)(humi_val.i);
 // //         temp = -40+0.01*temp_val.f;
 // //         humi = -4+0.0405*humi_val.f-2.8/1000000*humi_val.f*humi_val.f;
-//         myDelay(100);
+//         myDelay(1000);
     }
 }
 

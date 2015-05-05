@@ -1,4 +1,5 @@
 extern void myDelay (uint32_t ulTime);
+extern void myDelay_nop (uint32_t ulTime);
 extern void GPIOInit( void );
 extern void uartInit(void);
 extern void timer0Init (void);

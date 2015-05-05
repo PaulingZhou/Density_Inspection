@@ -431,6 +431,11 @@
               <FileType>1</FileType>
               <FilePath>.\USER_CODE\uart.c</FilePath>
             </File>
+            <File>
+              <FileName>DS18B20.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\USER_CODE\DS18B20.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
@@ -859,6 +864,11 @@
               <FileName>uart.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\USER_CODE\uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>DS18B20.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\USER_CODE\DS18B20.c</FilePath>
             </File>
           </Files>
         </Group>

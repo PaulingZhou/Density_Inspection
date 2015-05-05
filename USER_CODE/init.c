@@ -1,13 +1,14 @@
 #include "LPC11xx.h"                                                    /* LPC11xx外设寄存器            */
 #include "sht10.h"
+#include "ds18b20.h"
 
 /*********************************************************************************************************
   宏定义
 *********************************************************************************************************/
 #define UART_BPS    9600                                                /*  串口通信波特率              */
-#define OUTPUT  (1ul << 3)
-#define OUTPUT_HIGH()   LPC_GPIO0->DATA |= OUTPUT                       //PIO0_3输出高电平
-#define OUTPUT_LOW()    LPC_GPIO0->DATA &= ~OUTPUT                       //PIO0_3输出低电平
+// #define OUTPUT  (1ul << 3)
+// #define OUTPUT_HIGH()   LPC_GPIO0->DATA |= OUTPUT                       //PIO0_3输出高电平
+// #define OUTPUT_LOW()    LPC_GPIO0->DATA &= ~OUTPUT                       //PIO0_3输出低电平
 
 /*********************************************************************************************************
 ** Function name:       myDelay
@@ -28,6 +29,24 @@ void myDelay (uint32_t ulTime)
 }
 
 /*********************************************************************************************************
+** Function name:       myDelay
+** Descriptions:        软件延时，每单位延时1us(略大)
+** input parameters:    无
+** output parameters:   无
+** Returned value:      无
+*********************************************************************************************************/
+void myDelay_nop (uint32_t ulTime)
+{
+    uint32_t i;
+    i = 0;
+    while (ulTime--)
+    {
+        for (i = 0; i < 1; i++)
+        __nop();
+    }
+}
+
+/*********************************************************************************************************
 ** Function name:       GPIOInit
 ** Descriptions:        GPIO初始化
 ** input parameters:    无
@@ -41,8 +60,9 @@ void GPIOInit( void )
     LPC_IOCON->PIO2_8 &= PIO2_8_FUNC|(PIO2_MODE<<3);                    /* 将p2.8定义为GPIO功能，上拉电阻使能       */
     LPC_GPIO2->DIR  |= (DATAHIGH|SCKHIGH);                              /* 将p2.7,p2.8方向寄存器置1(配置为输出) */
     LPC_GPIO2->DATA |= (DATAHIGH|SCKHIGH);                              /* 将p2.7,p2.8配置为初始化输出高电平 */  
-    LPC_IOCON->PIO0_3 |= 0x00 | (0x02<<3);
-    LPC_GPIO0->DIR |= OUTPUT;   
+    ds18b20Init();                                                      //DS18b20 IO 配置(PIO2_11)
+//     LPC_IOCON->PIO0_3 |= 0x00 | (0x02<<3);
+//     LPC_GPIO0->DIR |= OUTPUT;   
 }
 
 /*********************************************************************************************************
