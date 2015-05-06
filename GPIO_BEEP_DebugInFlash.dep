@@ -7,7 +7,7 @@ I (LPC11xx\LPC11xx.h)(0x52C50EC4)
 I (.\CM0\core_cm0.h)(0x52C50EC4)
 I (LPC11xx\system_LPC11xx.h)(0x52C50EC4)
 F (.\LPC11xx\startup\startup_LPC11xx.s)(0x52C50EC4)(--cpu Cortex-M0 -g --apcs=interwork -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\NXP\LPC11xx --list ".\DebugInFlash\startup_LPC11xx.lst" --xref -o ".\DebugInFlash\startup_LPC11xx.o" --depend ".\DebugInFlash\startup_LPC11xx.d")
-F (.\USER_CODE\main.c)(0x55488C1F)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I.\CM0 -I.\LPC11xx -I.\LPC11xx\startup -I.\USER_CODE -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\NXP\LPC11xx -o ".\DebugInFlash\main.o" --omf_browse ".\DebugInFlash\main.crf" --depend ".\DebugInFlash\main.d")
+F (.\USER_CODE\main.c)(0x5549C0CF)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I.\CM0 -I.\LPC11xx -I.\LPC11xx\startup -I.\USER_CODE -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\NXP\LPC11xx -o ".\DebugInFlash\main.o" --omf_browse ".\DebugInFlash\main.crf" --depend ".\DebugInFlash\main.d")
 I (.\LPC11xx\LPC11xx.h)(0x52C50EC4)
 I (.\CM0\core_cm0.h)(0x52C50EC4)
 I (C:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x5548859A)
@@ -15,7 +15,7 @@ I (.\LPC11xx\system_LPC11xx.h)(0x52C50EC4)
 I (USER_CODE\SHT10.h)(0x550AB94A)
 I (USER_CODE\init.h)(0x55488973)
 I (USER_CODE\uart.h)(0x550FB3ED)
-I (USER_CODE\ds18b20.h)(0x5548885B)
+I (USER_CODE\ds18b20.h)(0x5549A9F0)
 F (.\USER_CODE\SHT10.c)(0x554868B2)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I.\CM0 -I.\LPC11xx -I.\LPC11xx\startup -I.\USER_CODE -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\NXP\LPC11xx -o ".\DebugInFlash\sht10.o" --omf_browse ".\DebugInFlash\sht10.crf" --depend ".\DebugInFlash\sht10.d")
 I (.\LPC11xx\LPC11xx.h)(0x52C50EC4)
 I (.\CM0\core_cm0.h)(0x52C50EC4)
@@ -23,22 +23,23 @@ I (C:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x5548859A)
 I (.\LPC11xx\system_LPC11xx.h)(0x52C50EC4)
 I (USER_CODE\init.h)(0x55488973)
 I (USER_CODE\sht10.h)(0x550AB94A)
-F (.\USER_CODE\init.c)(0x55488968)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I.\CM0 -I.\LPC11xx -I.\LPC11xx\startup -I.\USER_CODE -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\NXP\LPC11xx -o ".\DebugInFlash\init.o" --omf_browse ".\DebugInFlash\init.crf" --depend ".\DebugInFlash\init.d")
+F (.\USER_CODE\init.c)(0x55497B64)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I.\CM0 -I.\LPC11xx -I.\LPC11xx\startup -I.\USER_CODE -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\NXP\LPC11xx -o ".\DebugInFlash\init.o" --omf_browse ".\DebugInFlash\init.crf" --depend ".\DebugInFlash\init.d")
 I (.\LPC11xx\LPC11xx.h)(0x52C50EC4)
 I (.\CM0\core_cm0.h)(0x52C50EC4)
 I (C:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x5548859A)
 I (.\LPC11xx\system_LPC11xx.h)(0x52C50EC4)
 I (USER_CODE\sht10.h)(0x550AB94A)
-I (USER_CODE\ds18b20.h)(0x5548885B)
+I (USER_CODE\ds18b20.h)(0x5549A9F0)
 F (.\USER_CODE\uart.c)(0x550FB374)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I.\CM0 -I.\LPC11xx -I.\LPC11xx\startup -I.\USER_CODE -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\NXP\LPC11xx -o ".\DebugInFlash\uart.o" --omf_browse ".\DebugInFlash\uart.crf" --depend ".\DebugInFlash\uart.d")
 I (.\LPC11xx\LPC11xx.h)(0x52C50EC4)
 I (.\CM0\core_cm0.h)(0x52C50EC4)
 I (C:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x5548859A)
 I (.\LPC11xx\system_LPC11xx.h)(0x52C50EC4)
-F (.\USER_CODE\DS18B20.c)(0x55488CB6)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I.\CM0 -I.\LPC11xx -I.\LPC11xx\startup -I.\USER_CODE -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\NXP\LPC11xx -o ".\DebugInFlash\ds18b20.o" --omf_browse ".\DebugInFlash\ds18b20.crf" --depend ".\DebugInFlash\ds18b20.d")
+F (.\USER_CODE\DS18B20.c)(0x5549C0A9)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I.\CM0 -I.\LPC11xx -I.\LPC11xx\startup -I.\USER_CODE -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\NXP\LPC11xx -o ".\DebugInFlash\ds18b20.o" --omf_browse ".\DebugInFlash\ds18b20.crf" --depend ".\DebugInFlash\ds18b20.d")
 I (.\LPC11xx\LPC11xx.h)(0x52C50EC4)
 I (.\CM0\core_cm0.h)(0x52C50EC4)
 I (C:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x5548859A)
 I (.\LPC11xx\system_LPC11xx.h)(0x52C50EC4)
 I (USER_CODE\init.h)(0x55488973)
-I (USER_CODE\ds18b20.h)(0x5548885B)
+I (USER_CODE\ds18b20.h)(0x5549A9F0)
+I (USER_CODE\uart.h)(0x550FB3ED)

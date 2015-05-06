@@ -5,3 +5,4 @@
 .\DebugInFlash\ds18b20.o: .\LPC11xx\system_LPC11xx.h
 .\DebugInFlash\ds18b20.o: USER_CODE\init.h
 .\DebugInFlash\ds18b20.o: USER_CODE\ds18b20.h
+.\DebugInFlash\ds18b20.o: USER_CODE\uart.h

@@ -35,7 +35,7 @@ void myDelay (uint32_t ulTime)
 ** output parameters:   нч
 ** Returned value:      нч
 *********************************************************************************************************/
-void myDelay_nop (uint32_t ulTime)
+ void myDelay_nop (uint32_t ulTime)
 {
     uint32_t i;
     i = 0;
