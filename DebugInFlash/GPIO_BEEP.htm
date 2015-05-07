@@ -3,9 +3,9 @@
 <title>Static Call Graph - [.\DebugInFlash\GPIO_BEEP.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\DebugInFlash\GPIO_BEEP.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.02 [Build 28]: Last Updated: Wed May 06 15:20:49 2015
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.02 [Build 28]: Last Updated: Wed May 06 19:05:16 2015
 <BR><P>
-<H3>Maximum Stack Usage =         24 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =         32 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 __rt_entry_main &rArr; main &rArr; SystemInit &rArr; SystemFrequencyUpdate &rArr; __ARM_common_switch8
 <P>
@@ -175,7 +175,7 @@ Global Symbols
 <P><STRONG><a name="[6a]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[2d]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 32 + Unknown Stack Size
 <LI>Call Chain = __rt_entry_main &rArr; main &rArr; SystemInit &rArr; SystemFrequencyUpdate &rArr; __ARM_common_switch8
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
@@ -349,16 +349,16 @@ Global Symbols
 <P><STRONG><a name="[13]"></a>TIMER16_0_IRQHandler</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, main.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc11xx.o(RESET)
 </UL>
-<P><STRONG><a name="[2e]"></a>main</STRONG> (Thumb, 104 bytes, Stack size 0 bytes, main.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = main &rArr; SystemInit &rArr; SystemFrequencyUpdate &rArr; __ARM_common_switch8
+<P><STRONG><a name="[2e]"></a>main</STRONG> (Thumb, 132 bytes, Stack size 8 bytes, main.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = main &rArr; SystemInit &rArr; SystemFrequencyUpdate &rArr; __ARM_common_switch8
 </UL>
-<BR>[Calls]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uartSendByte
+<BR>[Calls]<UL><LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uartSendByte
 <LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uartInit
 <LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer1Init
 <LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer0Init
 <LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myDelay
 <LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds_write_byte
-<LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds_read_byte
+<LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds_read_byte
 <LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOInit
 <LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_Reset
 <LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
@@ -372,7 +372,7 @@ Global Symbols
 
 <P><STRONG><a name="[47]"></a>myDelay_nop</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, init.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds_write_byte
-<LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds_read_byte
+<LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds_read_byte
 <LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DS18B20_Reset
 </UL>
 
@@ -418,13 +418,13 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uartGetByte
 </UL>
 
-<P><STRONG><a name="[40]"></a>uartSendByte</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, uart.o(.text))
+<P><STRONG><a name="[3f]"></a>uartSendByte</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, uart.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uartSendStr
 <LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[46]"></a>uartSendStr</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, uart.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uartSendByte
+<BR><BR>[Calls]<UL><LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uartSendByte
 </UL>
 
 <P><STRONG><a name="[41]"></a>ds18b20Init</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, ds18b20.o(.text))
@@ -447,7 +447,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[3f]"></a>ds_read_byte</STRONG> (Thumb, 118 bytes, Stack size 16 bytes, ds18b20.o(.text))
+<P><STRONG><a name="[40]"></a>ds_read_byte</STRONG> (Thumb, 118 bytes, Stack size 16 bytes, ds18b20.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = ds_read_byte
 </UL>
 <BR>[Calls]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myDelay_nop

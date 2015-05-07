@@ -44,7 +44,6 @@ value humi_val,temp_val;
 uint32_t length;
 volatile uint32_t   GuiCapFlag = 0;                                     /* 定时器捕获中断标志           */
 uint32_t i,tmr0_opcnt=0;
-uint8_t temperature0,temperature1 = 0;
 // uint8_t val_1,val_2;
 
 /*********************************************************************************************************
@@ -92,9 +91,9 @@ void TIMER16_0_IRQHandler (void)
 *********************************************************************************************************/
 int main (void)
 {
-    uint8_t val[4],i;
+    uint8_t val[4],i,temperature[2];
     char error,checksum;
-
+    
     SystemInit();                                                       /* 系统初始化，切勿删除         */
     GPIOInit();
     uartInit();
@@ -110,11 +109,17 @@ int main (void)
         DS18B20_Reset();
         ds_write_byte(0xCC);
         ds_write_byte(0xBE);
-        temperature0 = ds_read_byte();
-        uartSendByte(temperature0);
-        temperature1 = ds_read_byte();
-        uartSendByte(temperature1);
-        DS18B20_Reset();       
+        uartSendByte(0xAA);                                              //帧头1
+        uartSendByte(0xBB);                                              //帧头2
+        uartSendByte(0x03);                                              //数据域长度（不算该字节）
+        uartSendByte(0x01);                                              //命令字（暂定0x01为温度） 
+        for(i=0;i<2;i++)
+        {
+            temperature[i] = ds_read_byte() ;
+            uartSendByte(temperature[i]);
+        }
+        DS18B20_Reset();    
+        myDelay(500);
 //         
 //         LPC_TMR16B0->TCR = 0x01;
 //         myDelay(1);

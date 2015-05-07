@@ -262,24 +262,24 @@ Image Symbol Table
     .text                                    0x00000168   Section        0  system_lpc11xx.o(.text)
     .text                                    0x000003e8   Section       56  startup_lpc11xx.o(.text)
     .text                                    0x00000420   Section        0  main.o(.text)
-    .text                                    0x000004f0   Section        0  init.o(.text)
-    NVIC_SetPriority                         0x000004f1   Thumb Code   110  init.o(.text)
-    NVIC_EnableIRQ                           0x00000719   Thumb Code    14  init.o(.text)
-    .text                                    0x00000754   Section        0  uart.o(.text)
-    .text                                    0x000007b0   Section        0  ds18b20.o(.text)
-    .text                                    0x00000940   Section      346  aeabi_sdiv.o(.text)
-    .text                                    0x00000a9a   Section        0  heapauxi.o(.text)
-    .text                                    0x00000aa0   Section       62  sys_stackheap_outer.o(.text)
-    .text                                    0x00000ade   Section        0  exit.o(.text)
-    .text                                    0x00000aec   Section        8  libspace.o(.text)
-    .text                                    0x00000af4   Section        0  sys_exit.o(.text)
-    .text                                    0x00000b00   Section        2  use_no_semi.o(.text)
-    .text                                    0x00000b02   Section        0  indicate_semi.o(.text)
-    i.__ARM_common_switch8                   0x00000b02   Section        0  system_lpc11xx.o(i.__ARM_common_switch8)
+    .text                                    0x00000504   Section        0  init.o(.text)
+    NVIC_SetPriority                         0x00000505   Thumb Code   110  init.o(.text)
+    NVIC_EnableIRQ                           0x0000072d   Thumb Code    14  init.o(.text)
+    .text                                    0x00000768   Section        0  uart.o(.text)
+    .text                                    0x000007c4   Section        0  ds18b20.o(.text)
+    .text                                    0x00000954   Section      346  aeabi_sdiv.o(.text)
+    .text                                    0x00000aae   Section        0  heapauxi.o(.text)
+    .text                                    0x00000ab4   Section       62  sys_stackheap_outer.o(.text)
+    .text                                    0x00000af2   Section        0  exit.o(.text)
+    .text                                    0x00000b00   Section        8  libspace.o(.text)
+    .text                                    0x00000b08   Section        0  sys_exit.o(.text)
+    .text                                    0x00000b14   Section        2  use_no_semi.o(.text)
+    .text                                    0x00000b16   Section        0  indicate_semi.o(.text)
+    i.__ARM_common_switch8                   0x00000b16   Section        0  system_lpc11xx.o(i.__ARM_common_switch8)
     .data                                    0x10000000   Section        4  system_lpc11xx.o(.data)
-    .data                                    0x10000004   Section       37  main.o(.data)
-    i                                        0x1000000d   Data           1  main.o(.data)
-    .data                                    0x10000029   Section        2  ds18b20.o(.data)
+    .data                                    0x10000004   Section       36  main.o(.data)
+    i                                        0x1000000c   Data           1  main.o(.data)
+    .data                                    0x10000028   Section        2  ds18b20.o(.data)
     .bss                                     0x1000002c   Section       96  libspace.o(.bss)
     HEAP                                     0x10000090   Section      512  startup_lpc11xx.o(HEAP)
     Heap_Mem                                 0x10000090   Data         512  startup_lpc11xx.o(HEAP)
@@ -400,53 +400,51 @@ Image Symbol Table
     __user_initial_stackheap                 0x00000401   Thumb Code     0  startup_lpc11xx.o(.text)
     TIMER32_1_IRQHandler                     0x00000421   Thumb Code    38  main.o(.text)
     TIMER16_0_IRQHandler                     0x00000447   Thumb Code    36  main.o(.text)
-    main                                     0x0000046b   Thumb Code   104  main.o(.text)
-    myDelay                                  0x0000055f   Thumb Code    30  init.o(.text)
-    myDelay_nop                              0x0000057d   Thumb Code    28  init.o(.text)
-    GPIOInit                                 0x00000599   Thumb Code    66  init.o(.text)
-    uartInit                                 0x000005db   Thumb Code   158  init.o(.text)
-    timer0Init                               0x00000679   Thumb Code    82  init.o(.text)
-    timer1Init                               0x000006cb   Thumb Code    78  init.o(.text)
-    uartGetByte                              0x00000755   Thumb Code    20  uart.o(.text)
-    uartGetStr                               0x00000769   Thumb Code    24  uart.o(.text)
-    uartSendByte                             0x00000781   Thumb Code    18  uart.o(.text)
-    uartSendStr                              0x00000793   Thumb Code    26  uart.o(.text)
-    ds18b20Init                              0x000007b1   Thumb Code    34  ds18b20.o(.text)
-    DS18B20_Reset                            0x000007d3   Thumb Code   104  ds18b20.o(.text)
-    ds_write_byte                            0x0000083b   Thumb Code   124  ds18b20.o(.text)
-    ds_read_byte                             0x000008b7   Thumb Code   118  ds18b20.o(.text)
-    __aeabi_uidiv                            0x00000941   Thumb Code     0  aeabi_sdiv.o(.text)
-    __aeabi_uidivmod                         0x00000941   Thumb Code    20  aeabi_sdiv.o(.text)
-    __aeabi_idiv                             0x00000955   Thumb Code     0  aeabi_sdiv.o(.text)
-    __aeabi_idivmod                          0x00000955   Thumb Code   326  aeabi_sdiv.o(.text)
-    __use_two_region_memory                  0x00000a9b   Thumb Code     2  heapauxi.o(.text)
-    __rt_heap_escrow$2region                 0x00000a9d   Thumb Code     2  heapauxi.o(.text)
-    __rt_heap_expand$2region                 0x00000a9f   Thumb Code     2  heapauxi.o(.text)
-    __user_setup_stackheap                   0x00000aa1   Thumb Code    62  sys_stackheap_outer.o(.text)
-    exit                                     0x00000adf   Thumb Code    12  exit.o(.text)
-    __user_libspace                          0x00000aed   Thumb Code     8  libspace.o(.text)
-    __user_perproc_libspace                  0x00000aed   Thumb Code     0  libspace.o(.text)
-    __user_perthread_libspace                0x00000aed   Thumb Code     0  libspace.o(.text)
-    _sys_exit                                0x00000af5   Thumb Code     8  sys_exit.o(.text)
-    __I$use$semihosting                      0x00000b01   Thumb Code     0  use_no_semi.o(.text)
-    __use_no_semihosting_swi                 0x00000b01   Thumb Code     2  use_no_semi.o(.text)
-    __ARM_common_switch8                     0x00000b03   Thumb Code    28  system_lpc11xx.o(i.__ARM_common_switch8)
-    __semihosting_library_function           0x00000b03   Thumb Code     0  indicate_semi.o(.text)
-    Region$$Table$$Base                      0x00000b20   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00000b40   Number         0  anon$$obj.o(Region$$Table)
+    main                                     0x0000046b   Thumb Code   132  main.o(.text)
+    myDelay                                  0x00000573   Thumb Code    30  init.o(.text)
+    myDelay_nop                              0x00000591   Thumb Code    28  init.o(.text)
+    GPIOInit                                 0x000005ad   Thumb Code    66  init.o(.text)
+    uartInit                                 0x000005ef   Thumb Code   158  init.o(.text)
+    timer0Init                               0x0000068d   Thumb Code    82  init.o(.text)
+    timer1Init                               0x000006df   Thumb Code    78  init.o(.text)
+    uartGetByte                              0x00000769   Thumb Code    20  uart.o(.text)
+    uartGetStr                               0x0000077d   Thumb Code    24  uart.o(.text)
+    uartSendByte                             0x00000795   Thumb Code    18  uart.o(.text)
+    uartSendStr                              0x000007a7   Thumb Code    26  uart.o(.text)
+    ds18b20Init                              0x000007c5   Thumb Code    34  ds18b20.o(.text)
+    DS18B20_Reset                            0x000007e7   Thumb Code   104  ds18b20.o(.text)
+    ds_write_byte                            0x0000084f   Thumb Code   124  ds18b20.o(.text)
+    ds_read_byte                             0x000008cb   Thumb Code   118  ds18b20.o(.text)
+    __aeabi_uidiv                            0x00000955   Thumb Code     0  aeabi_sdiv.o(.text)
+    __aeabi_uidivmod                         0x00000955   Thumb Code    20  aeabi_sdiv.o(.text)
+    __aeabi_idiv                             0x00000969   Thumb Code     0  aeabi_sdiv.o(.text)
+    __aeabi_idivmod                          0x00000969   Thumb Code   326  aeabi_sdiv.o(.text)
+    __use_two_region_memory                  0x00000aaf   Thumb Code     2  heapauxi.o(.text)
+    __rt_heap_escrow$2region                 0x00000ab1   Thumb Code     2  heapauxi.o(.text)
+    __rt_heap_expand$2region                 0x00000ab3   Thumb Code     2  heapauxi.o(.text)
+    __user_setup_stackheap                   0x00000ab5   Thumb Code    62  sys_stackheap_outer.o(.text)
+    exit                                     0x00000af3   Thumb Code    12  exit.o(.text)
+    __user_libspace                          0x00000b01   Thumb Code     8  libspace.o(.text)
+    __user_perproc_libspace                  0x00000b01   Thumb Code     0  libspace.o(.text)
+    __user_perthread_libspace                0x00000b01   Thumb Code     0  libspace.o(.text)
+    _sys_exit                                0x00000b09   Thumb Code     8  sys_exit.o(.text)
+    __I$use$semihosting                      0x00000b15   Thumb Code     0  use_no_semi.o(.text)
+    __use_no_semihosting_swi                 0x00000b15   Thumb Code     2  use_no_semi.o(.text)
+    __ARM_common_switch8                     0x00000b17   Thumb Code    28  system_lpc11xx.o(i.__ARM_common_switch8)
+    __semihosting_library_function           0x00000b17   Thumb Code     0  indicate_semi.o(.text)
+    Region$$Table$$Base                      0x00000b34   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00000b54   Number         0  anon$$obj.o(Region$$Table)
     SystemFrequency                          0x10000000   Data           4  system_lpc11xx.o(.data)
     GuiCapFlag                               0x10000004   Data           4  main.o(.data)
     tmr0_opcnt                               0x10000008   Data           4  main.o(.data)
-    temperature1                             0x1000000c   Data           1  main.o(.data)
     temp                                     0x10000010   Data           4  main.o(.data)
     humi                                     0x10000014   Data           4  main.o(.data)
     humi_val                                 0x10000018   Data           4  main.o(.data)
     temp_val                                 0x1000001c   Data           4  main.o(.data)
     length                                   0x10000020   Data           4  main.o(.data)
     i                                        0x10000024   Data           4  main.o(.data)
-    temperature0                             0x10000028   Data           1  main.o(.data)
-    state                                    0x10000029   Data           1  ds18b20.o(.data)
-    Temp                                     0x1000002a   Data           1  ds18b20.o(.data)
+    state                                    0x10000028   Data           1  ds18b20.o(.data)
+    Temp                                     0x10000029   Data           1  ds18b20.o(.data)
     __libspace_start                         0x1000002c   Data          96  libspace.o(.bss)
     __temporary_stack_top$libspace           0x1000008c   Data           0  libspace.o(.bss)
 
@@ -458,9 +456,9 @@ Memory Map of the image
 
   Image Entry point : 0x000000c1
 
-  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00000b6c, Max: 0x00008000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00000b80, Max: 0x00008000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Base: 0x00000000, Size: 0x00000b40, Max: 0x00008000, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x00000000, Size: 0x00000b54, Max: 0x00008000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -512,22 +510,22 @@ Memory Map of the image
     0x00000166   0x00000002   PAD
     0x00000168   0x00000280   Code   RO           12    .text               system_lpc11xx.o
     0x000003e8   0x00000038   Code   RO           42    .text               startup_lpc11xx.o
-    0x00000420   0x000000d0   Code   RO           47    .text               main.o
-    0x000004f0   0x00000264   Code   RO           99    .text               init.o
-    0x00000754   0x0000005c   Code   RO          114    .text               uart.o
-    0x000007b0   0x00000190   Code   RO          126    .text               ds18b20.o
-    0x00000940   0x0000015a   Code   RO          143    .text               c_p.l(aeabi_sdiv.o)
-    0x00000a9a   0x00000006   Code   RO          147    .text               c_p.l(heapauxi.o)
-    0x00000aa0   0x0000003e   Code   RO          173    .text               c_p.l(sys_stackheap_outer.o)
-    0x00000ade   0x0000000c   Code   RO          176    .text               c_p.l(exit.o)
-    0x00000aea   0x00000002   PAD
-    0x00000aec   0x00000008   Code   RO          188    .text               c_p.l(libspace.o)
-    0x00000af4   0x0000000c   Code   RO          243    .text               c_p.l(sys_exit.o)
-    0x00000b00   0x00000002   Code   RO          262    .text               c_p.l(use_no_semi.o)
-    0x00000b02   0x00000000   Code   RO          264    .text               c_p.l(indicate_semi.o)
-    0x00000b02   0x0000001c   Code   RO           24    i.__ARM_common_switch8  system_lpc11xx.o
-    0x00000b1e   0x00000002   PAD
-    0x00000b20   0x00000020   Data   RO          313    Region$$Table       anon$$obj.o
+    0x00000420   0x000000e4   Code   RO           47    .text               main.o
+    0x00000504   0x00000264   Code   RO           99    .text               init.o
+    0x00000768   0x0000005c   Code   RO          114    .text               uart.o
+    0x000007c4   0x00000190   Code   RO          126    .text               ds18b20.o
+    0x00000954   0x0000015a   Code   RO          143    .text               c_p.l(aeabi_sdiv.o)
+    0x00000aae   0x00000006   Code   RO          147    .text               c_p.l(heapauxi.o)
+    0x00000ab4   0x0000003e   Code   RO          173    .text               c_p.l(sys_stackheap_outer.o)
+    0x00000af2   0x0000000c   Code   RO          176    .text               c_p.l(exit.o)
+    0x00000afe   0x00000002   PAD
+    0x00000b00   0x00000008   Code   RO          188    .text               c_p.l(libspace.o)
+    0x00000b08   0x0000000c   Code   RO          243    .text               c_p.l(sys_exit.o)
+    0x00000b14   0x00000002   Code   RO          262    .text               c_p.l(use_no_semi.o)
+    0x00000b16   0x00000000   Code   RO          264    .text               c_p.l(indicate_semi.o)
+    0x00000b16   0x0000001c   Code   RO           24    i.__ARM_common_switch8  system_lpc11xx.o
+    0x00000b32   0x00000002   PAD
+    0x00000b34   0x00000020   Data   RO          313    Region$$Table       anon$$obj.o
 
 
     Execution Region RW_IRAM1 (Base: 0x10000000, Size: 0x00000490, Max: 0x00002000, ABSOLUTE)
@@ -535,9 +533,9 @@ Memory Map of the image
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x10000000   0x00000004   Data   RW           13    .data               system_lpc11xx.o
-    0x10000004   0x00000025   Data   RW           48    .data               main.o
-    0x10000029   0x00000002   Data   RW          127    .data               ds18b20.o
-    0x1000002b   0x00000001   PAD
+    0x10000004   0x00000024   Data   RW           48    .data               main.o
+    0x10000028   0x00000002   Data   RW          127    .data               ds18b20.o
+    0x1000002a   0x00000002   PAD
     0x1000002c   0x00000060   Zero   RW          189    .bss                c_p.l(libspace.o)
     0x1000008c   0x00000004   PAD
     0x10000090   0x00000200   Zero   RW           40    HEAP                startup_lpc11xx.o
@@ -554,15 +552,15 @@ Image component sizes
          0          0          0          0          0       4212   core_cm0.o
        400         20          0          2          0       1216   ds18b20.o
        612         46          0          0          0       4090   init.o
-       208         30          0         37          0       8688   main.o
+       228         22          0         36          0       8686   main.o
         56         22        192          0       1024        764   startup_lpc11xx.o
        668        104          0          4          0       1145   system_lpc11xx.o
         92          4          0          0          0       1226   uart.o
 
     ----------------------------------------------------------------------
-      2038        226        224         44       1024      21341   Object Totals
+      2058        218        224         44       1024      21339   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-         2          0          0          1          0          0   (incl. Padding)
+         2          0          0          2          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -610,15 +608,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      2656        242        224         44       1124      21277   Grand Totals
-      2656        242        224         44       1124      21277   ELF Image Totals
-      2656        242        224         44          0          0   ROM Totals
+      2676        234        224         44       1124      21275   Grand Totals
+      2676        234        224         44       1124      21275   ELF Image Totals
+      2676        234        224         44          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 2880 (   2.81kB)
+    Total RO  Size (Code + RO Data)                 2900 (   2.83kB)
     Total RW  Size (RW Data + ZI Data)              1168 (   1.14kB)
-    Total ROM Size (Code + RO Data + RW Data)       2924 (   2.86kB)
+    Total ROM Size (Code + RO Data + RW Data)       2944 (   2.88kB)
 
 ==============================================================================
 
