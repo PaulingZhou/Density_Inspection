@@ -67,7 +67,7 @@ void GPIOInit( void )
 
 /*********************************************************************************************************
 ** Function name:       uartInit
-** Descriptions:        串口初始化，设置为8位数据位，1位停止位，无奇偶校验，波特率为9600
+** Descriptions:        串口初始化，设置为8位数据位，1位停止位，无奇偶校验，波特率为9600，P1.6为RXD，P1.7为TXD
 ** input parameters:    无
 ** output parameters:   无
 ** Returned value:      无
@@ -126,7 +126,7 @@ void timer1Init (void)
     LPC_IOCON->R_PIO1_0 |= 0x03;                                            /* 将P1.0配置为CAP0输入引脚  */
     LPC_SYSCON->SYSAHBCLKCTRL |= (1 << 10);                                /* 打开16位定时器1时钟模块   */
     LPC_TMR32B1->PR         =0;
-    LPC_TMR32B1->CCR     = 0x06;                                      /* 设置CAP0.0下降沿捕获         */
+    LPC_TMR32B1->CCR     = 0x05;                                      /* 设置CAP0.0上升沿捕获，0101         */
     LPC_TMR32B1->TC      = 0;
     LPC_TMR32B1->TCR     = 0x01;                                        /* 启动定时器                   */
     NVIC_EnableIRQ(TIMER_32_1_IRQn);
