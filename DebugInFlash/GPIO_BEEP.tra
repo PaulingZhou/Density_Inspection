@@ -18,7 +18,7 @@
 ### ADS-LD Output File: '.\DebugInFlash\GPIO_BEEP.axf'
 ### ADS-LD Command File: '.\DebugInFlash\GPIO_BEEP.lnp'
 ### Checking for dirty Components...
-### Creating CmdFile '.\DebugInFlash\GPIO_BEEP.lnp', Handle=0x00000460
+### Creating CmdFile '.\DebugInFlash\GPIO_BEEP.lnp', Handle=0x00000480
 ### Writing '.lnp' file
 ### ADS-LD Command file '.\DebugInFlash\GPIO_BEEP.lnp' is ready.
 ### ADS-LD: About to start ADS-LD Thread.

@@ -34,7 +34,7 @@
 #include "uart.h"
 #include "ds18b20.h"
 
-#define lengthUart 0x09                                //宏定义 数据帧长度 除了帧头外所有数据位的长度，现为长度(1byte)，命令字(1byte)，
+#define lengthUart 0x07                                //宏定义 数据帧长度 除了帧头外所有数据位的长度，现为长度(1byte)，命令字(1byte)，
                                                        //温度，湿度，声时(各2byte)，校验(1bit)
 #define cmdUartSend 0x07                               //宏定义 命令字 第0位表示温度，第1位表示湿度，第2位标识声时，置1表示发送
 
@@ -139,13 +139,14 @@ int main (void)
 //         temp = -40+0.01*temp_val.f;
 //         humi = -4+0.0405*humi_val.f-2.8/1000000*humi_val.f*humi_val.f;
         
-//         /** 超声波计时代码 **/
-//         LPC_TMR16B0->TCR = 0x01;                                            //打开定时器16_0，即此时开始匹配输出180kHz脉冲        
-//         LPC_TMR32B1->TCR = 0x01;                                            //打开定时器32_1，此时开始捕获输入，上升沿产生中断(见init.c)
+        /** 超声波计时代码 **/
+        LPC_TMR16B0->TCR = 0x01;                                            //打开定时器16_0，即此时开始匹配输出180kHz脉冲        
+        LPC_TMR32B1->TCR = 0x01;                                            //打开定时器32_1，此时开始捕获输入，上升沿产生中断(见init.c)
 //         while(!GuiCapFlag);                                                 //等待直到捕获输入标志位置1
-//         timerCount = LPC_TMR32B1->CR0;                                      //将捕获寄存器的值取出       
-//         GuiCapFlag  = 0;
-//         LPC_TMR32B1->TC      = 0;                                           //捕获输入标志位置0
+myDelay(1);
+        timerCount = LPC_TMR32B1->CR0;                                      //将捕获寄存器的值取出       
+        GuiCapFlag  = 0;
+        LPC_TMR32B1->TC      = 0;                                           //捕获输入标志位置0
         
         /** UART将数据帧发出 **/
         uartSendByte(0xAA);                                                  //帧头1       
@@ -167,14 +168,14 @@ int main (void)
             checkUart ^= valHumi[i];                                          //与湿度数据异或
             uartSendByte(valHumi[i]);
         }
-        timerCount = 0xEE;
+//         timerCount = 0xEE;
         uartSendByte(timerCount);                                             //声时数据(2Byte)
         checkUart ^= timerCount;                                              //与声时数据异或
         uartSendByte(timerCount >> 8); 
         checkUart ^= timerCount >> 8;
         uartSendByte(checkUart);
         /** 延迟1s **/
-        myDelay(1000);
+        myDelay(60000);
     }
 }
 
